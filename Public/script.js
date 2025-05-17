@@ -122,6 +122,9 @@ function handleCardClick() {
             resetCards();
             updateStatus();
 
+            // Apply the power-up here
+            addTimePowerUp();
+
             // Check if the game is won
             if (pairsLeft === 0) showWinningMessage();
         } else {
@@ -178,6 +181,13 @@ function powerUp() {
     setTimeout(() => {
         $(".card").removeClass("flip");
     }, 1500);
+}
+
+// Power-Up: Add 5 seconds when a pair is matched
+function addTimePowerUp() {
+    timeLeft += 5;
+    updateStatus();
+    console.log("Power-up activated! 5 extra seconds added.");
 }
 
 // Set up event listeners when the document is ready
